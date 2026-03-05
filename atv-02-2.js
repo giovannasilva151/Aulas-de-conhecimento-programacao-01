@@ -33,12 +33,13 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 // a)
-let endereço = {
+aluno.endereço = {
     Cidade: "Jaraguá do Sul",
-    Rua: "Rua Angelo Menel"
+    Rua: " Rua Angelo Menel"
+
 }
 // b)
-console.log(endereço.Cidade);
+console.log(aluno.endereço.Cidade);
 
 console.log("_______________________________");
 
@@ -67,11 +68,10 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 // a)
-let notas = [7.1, 8.1, 10.0, 6.5];
-console.log(notas);
+aluno.notas = [7.1, 8.1, 10.0, 6.5];
 // b)
 console.log(`Nome do aluno: ${aluno.Nome}
-Nota do Aluno: ${notas}`)
+Nota do Aluno: ${aluno.notas}`);
 console.log("_______________________________");
 
 
@@ -84,15 +84,15 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 // a)
-let responsavel = {
+aluno.responsavel = {
     parentesco: 'mãe',
     Nome: 'Maria'
 };
 // b)
-console.log(responsavel);
+console.log(aluno.responsavel.Nome);
 // c)
-responsavel.mãe = 'Ana'
-console.log(responsavel);
+aluno.responsavel.Nome = 'Ana'
+console.log(aluno.responsavel.Nome);
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -121,7 +121,7 @@ let alunoII = {
 listaDeAlunos.push(alunoI);
 listaDeAlunos.push(alunoII);
 // D)
-console.log(listaDeAlunos[2]);
+console.log(listaDeAlunos[1]);
 console.log("_______________________________");
 
 
