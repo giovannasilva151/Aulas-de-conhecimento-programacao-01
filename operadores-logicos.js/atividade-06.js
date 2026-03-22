@@ -27,7 +27,18 @@
 
 // → Seu código aqui:
 let informacoes = require('readline-sync')
-
+// A)
+let bra1 = true && true
+console.log(`true && true = ${bra1}`);
+// B)
+let bra2 = true && false
+console.log(`true && false = ${bra2}`)
+// C)
+let bra3 = false && true
+console.log(`false && true = ${bra3}`)
+// D)
+let bra4 = false && false
+console.log(`false && false = ${bra4}`)
 console.log("_______________________________");
 
 
@@ -46,17 +57,17 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 // A)
-let arb1 = true && true
-console.log(`true && true = ${arb1}`);
+let arb1 = true || true
+console.log(`true || true = ${arb1}`);
 // B)
-let arb2 = true && false
-console.log(`true && false = ${arb2}`)
+let arb2 = true || false
+console.log(`true || false = ${arb2}`)
 // C)
-let arb3 = false && true
-console.log(`false && true = ${arb3}`)
+let arb3 = false || true
+console.log(`false || true = ${arb3}`)
 // D)
-let arb4 = false && false
-console.log(`false && false = ${arb4}`)
+let arb4 = false || false
+console.log(`false || false = ${arb4}`)
 
 
 
@@ -187,7 +198,12 @@ console.log("_______________________________");
 let velocidade = 110
 let limiteVelocidade = 100
 // B)
-
+let statusMulta = velocidade > limiteVelocidade ? "Multa aplicada" : "Velocidade regular"
+// C)
+console.log(`
+    |Velocidade: ${velocidade}
+    |Limite da velocidade: ${limiteVelocidade}
+    |Status da multa: ${statusMulta}`)
 console.log("_______________________________");
 
 
@@ -202,7 +218,17 @@ console.log("_______________________________");
 // c) Exiba a variável "mensagem" com template literal.
 
 // → Seu código aqui:
-
+// A)
+let ehEstudante = informacoes.keyInYN('Estudante bolsista: ')
+// B)
+let custo = informacoes.keyInYN("Paga mais que R$1000,00 mensais pelo curso: ")
+// C)
+let mensagem = ehEstudante && custo 
+// D)
+console.log(`
+    É bolsista: ${ehEstudante ? "Sim" : "Não"}
+    Paga mais que R$1000,00 mensais: ${custo ? "Sim" : "Não"}
+    Desconto: ${mensagem ? "Desconto aplicado" : "Desconto não aplicado"}`)
 
 console.log("_______________________________");
 
@@ -224,7 +250,21 @@ console.log("_______________________________");
 //    Caso contrário → "Entrada negada."
 
 // → Seu código aqui:
-
+// A)
+let usuarioInfo = {
+    idade0: informacoes.questionInt("Idade: "),
+    ingresso: informacoes.keyInYN("Possui ingresso: "),
+    clube: informacoes.keyInYN("Associado ao clube: ")
+};
+// B)
+let resultadoClube = {
+    podeEntrarNormal: (usuarioInfo.idade0 >= 18 && usuarioInfo.ingresso),
+    podeEntrarSocio: (usuarioInfo.ingresso && usuario1.clube),
+    precidaAcompanhante: (usuarioInfo.idade0 < 18),
+    naoPodeEntrar: (usuarioInfo.ingresso && usuarioInfo.clube)
+};
+// C)
+console.log(`Entrada liberada: ${resultadoClube.podeEntrarNormal ? "Entrada liberada" : "Entrada negada"}`);
 
 console.log("_______________________________");
 
@@ -243,7 +283,26 @@ console.log("_______________________________");
 //    - "produtoIndisponivel": não temEstoque || não está ativo
 // d) Exiba os resultados com template literal.
 
-// → Seu código aqui:
+// → Seu código aqui: 
+// A, B)
+let produto = {
+    nomeProduto: informacoes.question("Nome do produto: "),
+    quantidadeEstoque: informacoes.questionInt("Quantidade em estoque: "),
+    produtoAtivo: informacoes.keyInYN("Produto ativo: ")
+}
+// C)
+let temEstoque = produto.quantidadeEstoque > 0
+let produtoDisponivel = temEstoque && produto.produtoAtivo
+let produtoIndisponivel = !temEstoque || !produto.produtoAtivo
+// D)
+console.log(`
+    Nome do produto: ${produto.nomeProduto}
+    Quantidade em estoque: ${produto.quantidadeEstoque}
+    Produto ativo: ${produto.produtoAtivo ? "Sim": "Não"}
+
+    Tem estoque: ${temEstoque ? "Sim" : "Não"}
+    Produto disponivel: ${produtoDisponivel ? "Disponivel" : "Indisponivel"}
+    Produto indisponivel: ${produtoIndisponivel ? "Disponivel" : "Indisponivel"}`);
 
 
 console.log("_______________________________");
@@ -264,7 +323,25 @@ console.log("_______________________________");
 // d) Exiba todos os resultados.
 
 // → Seu código aqui:
-
+// A e B)
+let usuario2 = {
+    ehAdmin: informacoes.keyInYN("É administrador: "),
+    logado: informacoes.keyInYN("Esta logado: "),
+    contaAtiva: informacoes.keyInYN("Conta ativa: ")
+}
+// C)
+let acessoSistema = usuario2.logado && usuario2.contaAtiva
+let acessoAdmin = acessoSistema && usuario2.ehAdmin
+let acessoNegado = !usuario2.logado
+// D)
+console.log(`
+    É administrador: ${usuario2.ehAdmin ? "Sim": "Nao"}
+    Esta logado: ${usuario2.logado ? "Sim" : "Nao"}
+    Conta ativa: ${usuario2.contaAtiva ? "Sim" : "Nao"}
+    
+    Acesso ao sistema: ${acessoSistema ? "Sim" : "Nao"}
+    Acesso Admin: ${acessoAdmin ? "Sim" : "Nao"}
+    Acesso: ${acessoNegado ? "Acesso aprovado" : "Acesso negado"}`)
 
 console.log("_______________________________");
 
@@ -287,6 +364,19 @@ console.log("_______________________________");
 //    Caso contrário → "Usuário ou senha incorretos."
 
 // → Seu código aqui:
-
+// A)
+let credenciaisSistema = {
+    usuario: "Admin",
+    senha: 1234
+}
+// B)
+let usuarioDigitado = informacoes.question('Digite o usuario: ')
+let senhaDigitada = informacoes.questionInt('Digite a senha: ')
+// C)
+let usuarioCorreto = usuarioDigitado === credenciaisSistema.usuario
+let senhaCorreta = senhaDigitada === credenciaisSistema.senha
+let loginValido = usuarioCorreto && senhaCorreta
+// D)
+console.log(`${loginValido ? "Login realizado com sucesso!" : "Usuario ou senha incorretos."}`)
 
 console.log("_______________________________");
