@@ -259,14 +259,37 @@ console.log("_______________________________");
 // g) Exiba o array 'turma' com console.table().
 
 // → Seu código aqui:
-let turma = {
-    aluno1: readline.question("Nome do primeiro aluno: "),
-    nota1: readline.questionInt(`Nota do aluno ${turma.aluno1}: `),
-    aluno2: readline.question("Nome do segundo aluno: "),
-    nota2: readline.questionInt(`Nota do aluno ${turma.aluno2}: `),
-    aluno3: readline.question("Nome do terceiro aluno: "),
-    nota3: readline.questionInt(`Nota do aluno ${turma.aluno3}: `)
-}
+let turma = []
+let somaNota = 0;
+
+for(let i = 0; i < 3; i++){
+    let nomeAluno = readline.question(`\nDigite o nome do aluno: `)
+    let notaAluno = readline.questionInt(`Nota do aluno ${nomeAluno}: `)
+    somaNota += notaAluno;
+        turma.push(
+            {
+            nome: nomeAluno,
+            nota: notaAluno
+        }
+    );
+};
+
+const media = somaNota / 3
+
+for(let i = 0; i < turma.length; i++){
+    let situacao;
+    if(turma[i].notaAluno >= 7) {
+        situacao = "Aprovado"
+    } else if (turma[i].notaAluno >= 5 && turma[i].notaAluno < 7) {
+        situacao = "Recuperação"
+    } else { turma[i].notaAluno < 5
+        situacao = "Reprovado"
+    }
+    console.log(`\n${turma[i].nome}: ${turma[i].nome} – ${situacao}`);
+};
+
+console.log(`\nMédia da turma: ${media.toFixed(2)}`);
+console.table(turma);
 
 console.log("_______________________________");
 
@@ -285,6 +308,34 @@ console.log("_______________________________");
 // f) Exiba o array com console.table().
 
 // → Seu código aqui:
+// A), B) e C)
+let qtdProdutos = readline.questionInt('Quantos produtos deseja cadastrar? ')
+let estoque = []
 
+for(let i = 0; i < qtdProdutos; i++){
+    let nomeProduto = readline.question("Nome do produto: ")
+    let precoProduto = readline.questionFloat(`Preco do produto ${nomeProduto}: `)
+    estoque.push({
+        nome: nomeProduto,
+        preco: precoProduto
+        }
+    )
+    console.log(`${estoque[i].nome}: R$ ${estoque[i].preco}`);
+}
 
-console.log("_______________________________");
+let maiorPreco = estoque[0]
+let menorPreco = estoque[0]
+//
+for (let i = 1; i < estoque.length; i++){
+    if (estoque[i].preco > maiorPreco.preco){
+      maiorPreco = estoque[i];
+}    for(let i = 1; i < estoque.length; i++){
+        if (estoque[i].preco < menorPreco.preco){
+        menorPreco = estoque[i];
+        }
+    }
+}
+
+console.log(`
+Maior preco: ${maiorPreco.preco}
+Manor preco: ${menorPreco.preco}`)
